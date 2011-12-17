@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboMarinheiro.Dominio", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboMarinheiro.Dominio.Teste", "RoboMarinheiro.Teste\RoboMarinheiro.Dominio.Teste.csproj", "{932C3580-F8E2-475A-9373-37CECB3ED3D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboMarinheiro.Repositorio.Web", "RoboMarinheiro.Repositorio.Web\RoboMarinheiro.Repositorio.Web.csproj", "{D02767BD-5BED-41D6-B607-3324EFD260F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{932C3580-F8E2-475A-9373-37CECB3ED3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932C3580-F8E2-475A-9373-37CECB3ED3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932C3580-F8E2-475A-9373-37CECB3ED3D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02767BD-5BED-41D6-B607-3324EFD260F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02767BD-5BED-41D6-B607-3324EFD260F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02767BD-5BED-41D6-B607-3324EFD260F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02767BD-5BED-41D6-B607-3324EFD260F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

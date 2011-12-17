@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24712F6E-F89F-4F9B-8F03-E14E90047F28}</ProjectGuid>
+    <ProjectGuid>{D02767BD-5BED-41D6-B607-3324EFD260F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RoboMarinheiro.Dominio</RootNamespace>
-    <AssemblyName>RoboMarinheiro.Dominio</AssemblyName>
+    <RootNamespace>RoboMarinheiro.Repositorio.Web</RootNamespace>
+    <AssemblyName>RoboMarinheiro.Repositorio.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,9 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entidades\RoboMarinheiro.cs" />
-    <Compile Include="Repositorios\IHtmlRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoboMarinheiro.Dominio\RoboMarinheiro.Dominio.csproj">
+      <Project>{24712F6E-F89F-4F9B-8F03-E14E90047F28}</Project>
+      <Name>RoboMarinheiro.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

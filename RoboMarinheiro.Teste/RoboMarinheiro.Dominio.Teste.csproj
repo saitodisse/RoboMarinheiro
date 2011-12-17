@@ -63,6 +63,10 @@
       <Project>{24712F6E-F89F-4F9B-8F03-E14E90047F28}</Project>
       <Name>RoboMarinheiro.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RoboMarinheiro.Repositorio.Web\RoboMarinheiro.Repositorio.Web.csproj">
+      <Project>{D02767BD-5BED-41D6-B607-3324EFD260F9}</Project>
+      <Name>RoboMarinheiro.Repositorio.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

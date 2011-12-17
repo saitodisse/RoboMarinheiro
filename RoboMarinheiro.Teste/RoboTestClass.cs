@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using RoboMarinheiro.Dominio.Repositorios;
+using RoboMarinheiro.Repositorio.Web;
 
 namespace RoboMarinheiro.Dominio.Teste
 {
@@ -8,7 +10,8 @@ namespace RoboMarinheiro.Dominio.Teste
         [Test]
         public void deve_retornar_conteudo_da_uri_passada()
         {
-            var robo = new RoboMarinheiro();
+            IHtmlRepositorio htmlRepositorio = new HtmlRepositorio();
+            var robo = new RoboMarinheiro(htmlRepositorio);
             string conteudo = robo.BuscarConteudo("http://www.w3schools.com/html/tryit.asp?filename=tryhtml_intro");
             Assert.IsNotNullOrEmpty(conteudo);
         }
