@@ -1,5 +1,4 @@
 ﻿OK - se passa uma uri e retorna o conteudo
->> o navegador falha se pagina nao encontrada (404)
-
-extrator retira apenas o que casa com a regex passada
+OK - o navegador falha se pagina nao encontrada (404)
+>> extrator retira apenas o que casa com a regex passada
 resultado é gravado no mongo
