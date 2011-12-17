@@ -14,5 +14,14 @@ namespace RoboMarinheiro.Dominio.Teste
             var resultado = extrator.ExtrairPrimeiroGrupo(html, @"<p>(.*)?<\/p>");
             Assert.AreEqual("My first paragraph.", resultado);
         }
+
+        [Test]
+        public void deve_buscar_todas_regex_dos_seus_primeiros_grupos()
+        {
+            const string html = "a12 b25 c42";
+            var extrator = new Extrator();
+            string[] resultado = extrator.ExtrairTodosPrimeirosGrupos(html, @"\w\d{2}");
+            Assert.AreEqual(3, resultado.Length);
+        }
     }
 }
