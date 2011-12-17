@@ -50,20 +50,7 @@ namespace RoboMarinheiro.ConsoleApp
             resultadoExtracao = ExtrairRegex(regex, resultado);
 
             //imprime
-            Console.WriteLine(resultado);
-            Console.WriteLine("");
-            Console.WriteLine("");
             Console.WriteLine(resultadoExtracao);
-
-            Console.ReadKey();
-        }
-
-        private static string ExtrairRegex(string regex, string resultado)
-        {
-            string resultadoExtracao;
-            var extrator = new Extrator();
-            resultadoExtracao = extrator.ExtrairPrimeiroGrupo(resultado, regex);
-            return resultadoExtracao;
         }
 
         private static string Navegar(Marinheiro marinheiro, string uri)
@@ -88,6 +75,19 @@ namespace RoboMarinheiro.ConsoleApp
                 Console.WriteLine(sb.ToString());
             }
             return resultado;
+        }
+
+        private static string ExtrairRegex(string regex, string resultado)
+        {
+            StringBuilder resultadoExtracao = new StringBuilder();
+            var extrator = new Extrator();
+            var todosPrimeirosGrupos = extrator.ExtrairTodosPrimeirosGrupos(resultado, regex);
+            foreach (var texto in todosPrimeirosGrupos)
+            {
+                resultadoExtracao.Append(texto);
+                resultadoExtracao.Append(Environment.NewLine);
+            }
+            return resultadoExtracao.ToString();
         }
     }
 }
