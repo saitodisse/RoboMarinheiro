@@ -1,0 +1,4 @@
+﻿>> se passa uma uri e retorna o conteudo
+extrator retira apenas o que casa com a regex passada
+o navegador falha se pagina nao encontrada (404)
+resultado é gravado no mongo
