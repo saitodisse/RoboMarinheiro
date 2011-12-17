@@ -20,8 +20,9 @@ namespace RoboMarinheiro.Dominio.Teste
         {
             const string html = "a12 b25 c42";
             var extrator = new Extrator();
-            string[] resultado = extrator.ExtrairTodosPrimeirosGrupos(html, @"\w\d{2}");
+            string[] resultado = extrator.ExtrairTodosPrimeirosGrupos(html, @"(\w\d{2})");
             Assert.AreEqual(3, resultado.Length);
+            Assert.AreEqual("b25", resultado[1]);
         }
     }
 }
