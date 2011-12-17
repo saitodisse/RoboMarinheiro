@@ -7,7 +7,7 @@ namespace RoboMarinheiro.Dominio.Repositorios
 {
     public interface IHtmlRepositorio
     {
-        string Baixar(string caminho);
+        string Baixar(string caminho, string method);
     }
 
 }

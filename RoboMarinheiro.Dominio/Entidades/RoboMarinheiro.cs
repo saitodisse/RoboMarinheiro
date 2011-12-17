@@ -13,7 +13,7 @@ namespace RoboMarinheiro.Dominio
 
         public string BuscarConteudo(string uri)
         {
-            return _htmlRepositorio.Baixar(uri);
+            return _htmlRepositorio.Baixar(uri, "POST");
         }
     }
 }
