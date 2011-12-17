@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 
 namespace RoboMarinheiro.Dominio.Entidades
 {
     public class Extrator
     {
-        public string ExtrairPrimeiroGrupo(string texto, string regex)
+        public string ExtrairPrimeiroGrupo(string texto, string expressao)
         {
+            var regex = new Regex(expressao);
+            var matchCollection = regex.Matches(texto);
+            foreach (Match match in matchCollection)
+            {
+                return match.Groups[1].Value;
+            }
             return string.Empty;
         }
     }
