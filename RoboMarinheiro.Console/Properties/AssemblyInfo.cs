@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("RoboMarinheiro.Repositorio.Web")]
+[assembly: AssemblyTitle("RoboMarinheiro.ConsoleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("RoboMarinheiro.Repositorio.Web")]
+[assembly: AssemblyProduct("RoboMarinheiro.ConsoleApp")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("bfd5d5dc-4aef-4ebb-9a09-ecfd03b4e471")]
+[assembly: Guid("23b8ee48-7eb0-47cf-a85f-e1464ad16620")]
 
 // Version information for an assembly consists of the following four values:
 //

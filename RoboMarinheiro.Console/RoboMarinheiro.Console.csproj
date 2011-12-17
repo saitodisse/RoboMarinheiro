@@ -2,18 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24712F6E-F89F-4F9B-8F03-E14E90047F28}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1B28AE18-FC49-49D5-A82E-6074D10D4F27}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RoboMarinheiro.Dominio</RootNamespace>
-    <AssemblyName>RoboMarinheiro.Dominio</AssemblyName>
+    <RootNamespace>RoboMarinheiro.ConsoleApp</RootNamespace>
+    <AssemblyName>RoboMarinheiro.ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,7 +24,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,10 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Excessoes\PaginaNaoEncontrada404.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entidades\Marinheiro.cs" />
-    <Compile Include="Repositorios\IHtmlRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoboMarinheiro.Dominio\RoboMarinheiro.Dominio.csproj">
+      <Project>{24712F6E-F89F-4F9B-8F03-E14E90047F28}</Project>
+      <Name>RoboMarinheiro.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RoboMarinheiro.Repositorio.Web\RoboMarinheiro.Repositorio.Web.csproj">
+      <Project>{D02767BD-5BED-41D6-B607-3324EFD260F9}</Project>
+      <Name>RoboMarinheiro.Repositorio.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
