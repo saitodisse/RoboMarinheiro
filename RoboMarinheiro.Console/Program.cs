@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Net;
 using System.Text;
 using RoboMarinheiro.Dominio.Entidades;
@@ -42,30 +43,43 @@ namespace RoboMarinheiro.ConsoleApp
             var marinheiro = new Marinheiro(htmlRepositorio);
             string resultado = string.Empty;
 
-            //baixar
-            var useProxy = true;
-            var proxyAddress = "10.0.0.157";
-            var domain = "SHCNET";
-            var userName = "jsaito";
-            var password = "qweqwe3,";
+            var useProxy = Convert.ToBoolean(ConfigurationManager.AppSettings["useProxy"]);
+            var proxyAddress = ConfigurationManager.AppSettings["proxyAddress"];
+            var domain = ConfigurationManager.AppSettings["domain"];
+            var userName = ConfigurationManager.AppSettings["userName"];
+            var password = ConfigurationManager.AppSettings["password"];
 
-            var networkCredential = new NetworkCredential(userName, password, domain);
-            resultado = Navegar(marinheiro, uri, useProxy, proxyAddress, networkCredential);
+            resultado = Navegar(marinheiro, uri, useProxy, proxyAddress, userName, password, domain);
 
             //extrair
             string resultadoExtracao = string.Empty;
-            resultadoExtracao = ExtrairRegex(regex, resultado);
+            if (!string.IsNullOrEmpty(regex))
+            {
+                resultadoExtracao = ExtrairRegex(regex, resultado);
+            }
+            else
+            {
+                resultadoExtracao = resultado;
+            }
 
             //imprime
             Console.WriteLine(resultadoExtracao);
+            Console.ReadLine();
         }
 
-        private static string Navegar(Marinheiro marinheiro, string uri, bool usarProxy, string address, NetworkCredential networkCredential)
+        private static string Navegar(Marinheiro marinheiro, string uri, bool usarProxy, string address, string userName, string password, string domain)
         {
             string resultado = string.Empty;
             try
             {
-                var webProxy = new WebProxy(address, true, null, networkCredential);
+                WebProxy webProxy = null;
+
+                if (usarProxy)
+                {
+                    NetworkCredential networkCredential = new NetworkCredential(userName, password, domain);
+                    webProxy = new WebProxy(address, false, null, networkCredential);
+                }
+
                 resultado = marinheiro.BuscarConteudo(uri, webProxy);
             }
             catch (WebException ex)

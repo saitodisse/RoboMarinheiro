@@ -25,15 +25,13 @@ namespace RoboMarinheiro.Repositorio.Web
 
             req.ContentType = "application/x-www-form-urlencoded";
 
-            string username = "username";
-            string passWord = "Password";
-
-            var sw = new StreamWriter(req.GetRequestStream());
-            sw.Write("application=portal&url=http%3A%2F%2Fwww.bhmobile.ba%2Fportal%2Fredirect%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Ftype%3Dssologin%26url%3D%2Fportal%2Fshow%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Fidc%3D1023278&realm=sso&userid={0}&password={1}&x=16&y=11", username, passWord);
-            sw.Close();
+            //string username = "username";
+            //string passWord = "Password";
+            //var sw = new StreamWriter(req.GetRequestStream());
+            //sw.Write("application=portal&url=http%3A%2F%2Fwww.bhmobile.ba%2Fportal%2Fredirect%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Ftype%3Dssologin%26url%3D%2Fportal%2Fshow%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Fidc%3D1023278&realm=sso&userid={0}&password={1}&x=16&y=11", username, passWord);
+            //sw.Close();
 
             var response = (HttpWebResponse) req.GetResponse();
-
 
             var reader = new StreamReader(response.GetResponseStream());
             string tmp = reader.ReadToEnd();
