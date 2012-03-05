@@ -43,7 +43,14 @@ namespace RoboMarinheiro.ConsoleApp
             string resultado = string.Empty;
 
             //baixar
-            resultado = Navegar(marinheiro, uri);
+            var useProxy = true;
+            var proxyAddress = "10.0.0.157";
+            var domain = "SHCNET";
+            var userName = "jsaito";
+            var password = "qweqwe3,";
+
+            var networkCredential = new NetworkCredential(userName, password, domain);
+            resultado = Navegar(marinheiro, uri, useProxy, proxyAddress, networkCredential);
 
             //extrair
             string resultadoExtracao = string.Empty;
@@ -53,12 +60,13 @@ namespace RoboMarinheiro.ConsoleApp
             Console.WriteLine(resultadoExtracao);
         }
 
-        private static string Navegar(Marinheiro marinheiro, string uri)
+        private static string Navegar(Marinheiro marinheiro, string uri, bool usarProxy, string address, NetworkCredential networkCredential)
         {
             string resultado = string.Empty;
             try
             {
-                resultado = marinheiro.BuscarConteudo(uri);
+                var webProxy = new WebProxy(address, true, null, networkCredential);
+                resultado = marinheiro.BuscarConteudo(uri, webProxy);
             }
             catch (WebException ex)
             {

@@ -9,14 +9,15 @@ namespace RoboMarinheiro.Repositorio.Web
     {
         #region IHtmlRepositorio Members
 
-        public string Ler(string caminho, string method)
+        public string Ler(string caminho, string method, WebProxy webProxy)
         {
             var req = (HttpWebRequest) WebRequest.Create(caminho);
+            req.Proxy = webProxy;
             req.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705;)";
             req.Method = method;
             req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             req.Headers.Add("Accept-Language: en-us,en;q=0.5");
-            req.Headers.Add("Accept-Encoding: gzip,deflate");
+            req.Headers.Add("Accept-Encoding: deflate");
             req.Headers.Add("Accept-Charset: utf-8;q=0.7,*;q=0.7");
             req.KeepAlive = true;
             req.Headers.Add("Keep-Alive: 300");
@@ -28,9 +29,7 @@ namespace RoboMarinheiro.Repositorio.Web
             string passWord = "Password";
 
             var sw = new StreamWriter(req.GetRequestStream());
-            sw.Write(
-                "application=portal&url=http%3A%2F%2Fwww.bhmobile.ba%2Fportal%2Fredirect%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Ftype%3Dssologin%26url%3D%2Fportal%2Fshow%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Fidc%3D1023278&realm=sso&userid={0}&password={1}&x=16&y=11",
-                username, passWord);
+            sw.Write("application=portal&url=http%3A%2F%2Fwww.bhmobile.ba%2Fportal%2Fredirect%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Ftype%3Dssologin%26url%3D%2Fportal%2Fshow%3Bjsessionid%3D1C568AAA1FB8B5C757CF5F68BE6ECE65%3Fidc%3D1023278&realm=sso&userid={0}&password={1}&x=16&y=11", username, passWord);
             sw.Close();
 
             var response = (HttpWebResponse) req.GetResponse();

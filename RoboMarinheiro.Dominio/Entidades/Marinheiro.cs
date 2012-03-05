@@ -1,6 +1,4 @@
-using System;
 using System.Net;
-using RoboMarinheiro.Dominio.Excessoes;
 using RoboMarinheiro.Dominio.Repositorios;
 
 namespace RoboMarinheiro.Dominio.Entidades
@@ -14,9 +12,9 @@ namespace RoboMarinheiro.Dominio.Entidades
             _htmlRepositorio = htmlRepositorio;
         }
 
-        public string BuscarConteudo(string uri)
+        public string BuscarConteudo(string uri, WebProxy webProxy)
         {
-            return _htmlRepositorio.Ler(uri, "POST");
+            return _htmlRepositorio.Ler(uri, "POST", webProxy);
         }
     }
 }
